@@ -1,3 +1,6 @@
+![](Assets/Attachments/Pasted%20image%2020260319181543.png)
+
+
 ![](Assets/Attachments/Pasted%20image%2020251227193318.png)
 primero hacemos mkt en el directorio que queramos que se creen las carpetas necesarias para la auditoria
 
@@ -115,10 +118,12 @@ una vez hecho el paso anterior ejecutamos los siguientes comandos los cuales cre
 
 - **Acción:** Intenta ejecutar el archivo guardado invocando `bash` explícitamente. Esto suele funcionar aunque el archivo no tenga permisos `+x`.
 
-Luego de ejecutar este ultimo comando veremos lo siguiente en el puerto 443 que estaba en escucha : ![Pasted image 20251229153315](Assets/Attachments/Pasted%20image%2020251229153315.png)
+Luego de ejecutar este ultimo comando veremos lo siguiente en el puerto 443 que estaba en escucha :
+![Pasted image 20251229153315](Assets/Attachments/Pasted%20image%2020251229153315.png)
 La reverse shell se ha ejecutado correctamente en la maquina victima y ahora estamos en la shell del servidor, entonces nos pondremos a buscar cosas de valor por los directorios. 
 ![Pasted image 20251229153716](Assets/Attachments/Pasted%20image%2020251229153716.png)
-En mi caso luego de una larga busqueda he encontrado una contraseña en el archivo tomcat-users.xml: ![Pasted image 20251229153820](Assets/Attachments/Pasted%20image%2020251229153820.png)
+En mi caso luego de una larga busqueda he encontrado una contraseña en el archivo tomcat-users.xml: 
+![Pasted image 20251229153820](Assets/Attachments/Pasted%20image%2020251229153820.png)
 Tambien en usuarios encontramos a james del cual no tenemos la contraseña pero podemos probar con la contraseña que acabamos de encontrar por si reutiliza, cosa que es muy comun, entonces ejecutamos `su james` para cambiar de usuario pero nos da error de autenticacion 
 ![Pasted image 20251229154329](Assets/Attachments/Pasted%20image%2020251229154329.png)
 (el error de autenticación se be a que esta deshabilitado el permiso SUID o set user ID )
